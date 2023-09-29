@@ -1,0 +1,38 @@
+[
+    {
+        "employeeId": 1220,
+        "name": "Rajesh",
+        "isActive": true,
+        "certifications": [
+            {
+                "certId": "C1234",
+                "name": "Security Assesment",
+                "completedOn": "2023-09-29T15:24:49.874Z"
+            }
+        ]
+    },
+    {
+        "employeeId": 1221,
+        "name": "Kamal",
+        "isActive": true,
+        "certifications": [
+            {
+                "certId": "C1234",
+                "name": "AWS",
+                "completedOn": "2023-09-29T15:24:49.874Z"
+            }
+        ]
+    },
+    {
+        "employeeId": 1223,
+        "name": "Parag",
+        "isActive": true,
+        "certifications": [
+            {
+                "certId": "C1234",
+                "name": "Azure",
+                "completedOn": "2023-09-29T15:24:49.874Z"
+            }
+        ]
+    }
+]
