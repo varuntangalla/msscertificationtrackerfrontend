@@ -42,7 +42,7 @@ function App() {
           // element={<ActionAreaCard data={items} />
           element={<ProfileComponent data={items} />}
         />
-        <Route path="/*" element={<PageNotFound data={"Page Not Found"} />} />
+        <Route path="/*" element={<PageNotFound data={"Page Not Found!"} />} />
       </Routes>
       {/* <ActionAreaCard data={items} match={{ params: { employeeId: "1221" } }} /> */}
       {/* Replace "1220" with the actual employeeId from the URL */}
