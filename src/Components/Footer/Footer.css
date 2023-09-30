@@ -1,17 +1,21 @@
-/* Footer.css */
 .footer-container {
     background-color: black;
     color: white;
     text-align: center;
     padding: 10px;
+    width: 100%;
     position: fixed;
     bottom: 0;
-    width: 100%;
   }
   
   .footer-content {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-link {
+    margin-bottom: 10px;
   }
   
   .footer-link a {
@@ -19,5 +23,18 @@
     text-decoration: none;
   }
   
-  /* Adjust styles as needed */
+  .footer-text {
+    margin-top: 10px;
+  }
+  
+  /* Media query for small screens */
+  @media (max-width: 600px) {
+    .footer-content {
+      flex-direction: column;
+    }
+  
+    .footer-text {
+      margin-top: 0;
+    }
+  }
   

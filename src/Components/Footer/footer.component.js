@@ -1,4 +1,3 @@
-// Footer component (Footer.js)
 import React from "react";
 import "./Footer.css"; // Import your CSS file for styling
 
