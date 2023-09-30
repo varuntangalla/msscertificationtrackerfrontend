@@ -1,0 +1,23 @@
+/* Footer.css */
+.footer-container {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .footer-link a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Adjust styles as needed */
+  
