@@ -1,18 +1,35 @@
+// Footer.jsx
 import React from "react";
-import "./Footer.css"; // Import your CSS file for styling
+import { Typography, Link, Container } from "@mui/material";
+import { styled } from "@mui/system";
+
+const FooterContainer = styled("div")({
+  backgroundColor: "black",
+  color: "white",
+  padding: "10px",
+  position: "fixed",
+  bottom: 0,
+  width: "100%",
+  textAlign: "center",
+});
+
+const LinkStyled = styled(Link)({
+  textDecoration: "none",
+  color: "white",
+});
 
 const Footer = () => {
   return (
-    <footer className="footer-container">
-      <div className="footer-content">
-        <div className="footer-link">
-          <a href="/support">Support</a>
-        </div>
-        <div className="footer-text">
+    <FooterContainer>
+      <Container component="footer">
+        <Typography variant="body1">
+          <LinkStyled href="/support">Support</LinkStyled>
+        </Typography>
+        <Typography variant="body2">
           &copy; Miraclesoft 2023. All Rights Reserved.
-        </div>
-      </div>
-    </footer>
+        </Typography>
+      </Container>
+    </FooterContainer>
   );
 };
 

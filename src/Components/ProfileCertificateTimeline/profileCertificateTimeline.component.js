@@ -12,6 +12,11 @@ import "./profileCertificateTimeline.css"; // Import your CSS file for styling
 import JohnImage from "../../assets/John Doe.png";
 import BobImage from "../../assets/Bob Johnson.png";
 import JaneImage from "../../assets/Jane Smith.png";
+
+import Eva from "../../assets/Eva.png";
+import Charlie from "../../assets/Charlie.png";
+import Alice from "../../assets/Alice.png";
+
 const ProfileCertificationTimeline = ({
   profileData,
   certificationTimeline,
@@ -26,10 +31,11 @@ const ProfileCertificationTimeline = ({
 
     return qualifications;
   }
+
   const certificateSortedTimeline = sortQualificationsByCompletedOn(
     certificationTimeline
   );
-  console.log(certificateSortedTimeline);
+
   let profileImage;
   switch (profileData.name) {
     case "John Doe":
@@ -41,20 +47,24 @@ const ProfileCertificationTimeline = ({
     case "Jane Smith":
       profileImage = JaneImage;
       break;
-    // Add more cases for other profiles as needed
+    case "Alice Johnson":
+      profileImage = Alice;
+      break;
+    case "Eva Williams":
+      profileImage = Eva;
+      break;
+    case "Charlie Brown":
+      profileImage = Charlie;
+      break;
     default:
       profileImage = JohnImage; // Default image
   }
+
   return (
     <div className="profile-certification-timeline-container">
       <div className="profile-container">
         <div className="profile-header">
-          <img
-            // src={profileData.profileImage} // Replace with your profile image source
-            src={profileImage}
-            alt="Profile"
-            className="profile-image"
-          />
+          <img src={profileImage} alt="Profile" className="profile-image" />
           <div className="profile-details">
             <h2>{profileData.name}</h2>
             <div>
@@ -70,50 +80,57 @@ const ProfileCertificationTimeline = ({
 
       <div className="certification-timeline-container">
         <h2>Certification Timeline</h2>
-        <Timeline
-          sx={{
-            [`& .${timelineItemClasses.root}:before`]: {
-              flex: 0,
-              padding: 0,
-            },
-          }}
-        >
-          {certificateSortedTimeline.map((certification) => (
-            <TimelineItem key={certification.certificateId}>
-              <TimelineSeparator>
-                <TimelineDot
-                  color={
-                    new Date(certification.valid_till) > new Date()
-                      ? "success"
-                      : "error"
-                  }
-                />
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent id="certification-card">
-                <div>
-                  <strong>Certificate ID:</strong> {certification.certificateId}
-                </div>
-                <div>
-                  <strong>Name:</strong> {certification.name}
-                </div>
-                <div>
-                  <strong>Completed On:</strong> {certification.completedOn}
-                </div>
-                <div>
-                  <strong>Active:</strong>{" "}
-                  {new Date(certification.valid_till) > new Date()
-                    ? "Yes"
-                    : "No"}
-                </div>
-                <div>
-                  <strong>Valid Till:</strong> {certification.valid_till}
-                </div>
-                {/* Add more certification details as needed */}
-              </TimelineContent>
-            </TimelineItem>
-          ))}
-        </Timeline>
+        {certificateSortedTimeline.length === 0 ? (
+          <div className="no-certifications-card">
+            No Certifications Found...
+          </div>
+        ) : (
+          <Timeline
+            sx={{
+              [`& .${timelineItemClasses.root}:before`]: {
+                flex: 0,
+                padding: 0,
+              },
+            }}
+          >
+            {certificateSortedTimeline.map((certification) => (
+              <TimelineItem key={certification.certificateId}>
+                <TimelineSeparator>
+                  <TimelineDot
+                    color={
+                      new Date(certification.valid_till) > new Date()
+                        ? "success"
+                        : "error"
+                    }
+                  />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent id="certification-card">
+                  <div>
+                    <strong>Certificate ID:</strong>{" "}
+                    {certification.certificateId}
+                  </div>
+                  <div>
+                    <strong>Name:</strong> {certification.name}
+                  </div>
+                  <div>
+                    <strong>Completed On:</strong> {certification.completedOn}
+                  </div>
+                  <div>
+                    <strong>Active:</strong>{" "}
+                    {new Date(certification.valid_till) > new Date()
+                      ? "Yes"
+                      : "No"}
+                  </div>
+                  <div>
+                    <strong>Valid Till:</strong> {certification.valid_till}
+                  </div>
+                  {/* Add more certification details as needed */}
+                </TimelineContent>
+              </TimelineItem>
+            ))}
+          </Timeline>
+        )}
       </div>
     </div>
   );

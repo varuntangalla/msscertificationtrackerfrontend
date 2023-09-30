@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-around;
   padding: 20px;
-  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+  flex-wrap: wrap;
+  margin-bottom: 60px; /* Add padding to the bottom to avoid overlap with the fixed footer */
 }
 
 .profile-container {
@@ -35,13 +36,14 @@
 
 .certification-timeline-container {
   width: 100%; /* Take up full width on smaller screens */
+  overflow-y: auto;
 }
 
 .certification-timeline {
   margin-left: 0; /* Set margin-left to 0 to bring the timeline to the left */
 }
 
-#certification-card {
+#certification-card,.no-certifications-card {
   border: 0 10px 10px 0 solid rgb(204, 204, 204);
   border-radius: 10px;
   padding: 20px 40px; /* Add padding of 20px horizontally, adjust as needed */

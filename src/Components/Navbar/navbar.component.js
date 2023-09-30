@@ -1,6 +1,4 @@
-// Import necessary dependencies
-import React from "react";
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, Toolbar } from "@mui/material";
 import { styled } from "@mui/system";
 import MssLogo from "../../assets/mss-logo.jpeg";
 // Create custom styled components

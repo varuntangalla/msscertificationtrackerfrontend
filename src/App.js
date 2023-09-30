@@ -4,13 +4,7 @@ import ProfileComponent from "./Components/ProfileHolder/profile.component";
 import MyNavbar from "./Components/Navbar/navbar.component";
 import Footer from "./Components/Footer/footer.component"; // Import the Footer component
 import PageNotFound from "./Components/PageNotFound/pageNotFound.component"; // Import the PageNotFound component
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  useParams,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   const [items, setItems] = useState([]);
   useEffect(() => {
@@ -48,7 +42,7 @@ function App() {
           // element={<ActionAreaCard data={items} />
           element={<ProfileComponent data={items} />}
         />
-        <Route path="/*" element={<PageNotFound />} />
+        <Route path="/*" element={<PageNotFound data={"Page Not Found"} />} />
       </Routes>
       {/* <ActionAreaCard data={items} match={{ params: { employeeId: "1221" } }} /> */}
       {/* Replace "1220" with the actual employeeId from the URL */}
