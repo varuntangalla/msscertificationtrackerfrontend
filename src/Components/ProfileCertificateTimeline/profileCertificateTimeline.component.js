@@ -1,3 +1,12 @@
+import { useState } from "react";
+import QRCode from "qrcode.react";
+import IconButton from "@mui/material/IconButton";
+import QrCodeIcon from "@mui/icons-material/QrCode";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import CloseIcon from "@mui/icons-material/Close";
+
 import {
   Timeline,
   TimelineItem,
@@ -21,6 +30,16 @@ const ProfileCertificationTimeline = ({
   profileData,
   certificationTimeline,
 }) => {
+  /////////////////////////////////////////////////////////////////////
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  //////////////////////////////////////////////////////////////////////
   function sortQualificationsByCompletedOn(qualifications) {
     // Custom sorting function to compare dates
     const compareDates = (a, b) =>
@@ -68,7 +87,9 @@ const ProfileCertificationTimeline = ({
           <div className="profile-details">
             <h2>
               {profileData.name}
-              {/* <GenerateQRCodeFunction /> */}
+              <IconButton color="primary" onClick={openModal}>
+                <QrCodeIcon fontSize="small" />
+              </IconButton>
             </h2>
             <div>
               <strong>Designation:</strong> {profileData.designation}
@@ -135,6 +156,39 @@ const ProfileCertificationTimeline = ({
           </Timeline>
         )}
       </div>
+
+      <Modal open={isModalOpen} onClose={closeModal}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 300,
+            bgcolor: "background.paper",
+            boxShadow: 24,
+            p: 2,
+            textAlign: "center",
+          }}
+        >
+          <IconButton
+            color="primary"
+            aria-label="close"
+            onClick={closeModal}
+            sx={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Share your profile with this QR Code...
+          </Typography>
+          <QRCode value={window.location.href} />
+        </Box>
+      </Modal>
     </div>
   );
 };
