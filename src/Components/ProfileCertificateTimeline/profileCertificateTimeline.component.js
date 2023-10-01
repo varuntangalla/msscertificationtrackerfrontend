@@ -95,7 +95,7 @@ const ProfileCertificationTimeline = ({
               <strong>Designation:</strong> {profileData.designation}
             </div>
             <div className="profile-jobdescription">
-              <strong>JOB Description:</strong>
+              <strong>Job Description:</strong>
               <p>{profileData.jobDescription}</p>
             </div>
           </div>
