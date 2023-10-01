@@ -160,15 +160,20 @@ const ProfileCertificationTimeline = ({
       <Modal open={isModalOpen} onClose={closeModal}>
         <Box
           sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
             position: "absolute",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 300,
+            width: 350,
             bgcolor: "background.paper",
             boxShadow: 24,
-            p: 2,
-            textAlign: "center",
+            p: 3,
+            textAlign: "justify",
+            fontFamily: "Roboto, sans-serif",
           }}
         >
           <IconButton
@@ -183,8 +188,16 @@ const ProfileCertificationTimeline = ({
           >
             <CloseIcon />
           </IconButton>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Share your profile with this QR Code...
+          <Typography
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+            sx={{
+              marginBottom: 2,
+            }}
+          >
+            Unleash your essence with this QR Code – let your profile speak
+            volumes!
           </Typography>
           <QRCode value={window.location.href} />
         </Box>
