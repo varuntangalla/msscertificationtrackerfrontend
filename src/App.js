@@ -4,7 +4,7 @@ import ProfileComponent from "./Components/ProfileHolder/profile.component";
 import MyNavbar from "./Components/Navbar/navbar.component";
 import Footer from "./Components/Footer/footer.component"; // Import the Footer component
 import PageNotFound from "./Components/PageNotFound/pageNotFound.component"; // Import the PageNotFound component
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 function App() {
   const [items, setItems] = useState([]);
   useEffect(() => {

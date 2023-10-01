@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Timeline,
   TimelineItem,
@@ -16,6 +15,7 @@ import JaneImage from "../../assets/Jane Smith.png";
 import Eva from "../../assets/Eva.png";
 import Charlie from "../../assets/Charlie.png";
 import Alice from "../../assets/Alice.png";
+// import GenerateQRCodeFunction from "../QrCodeGenerator/qrCodeGenerator.component";
 
 const ProfileCertificationTimeline = ({
   profileData,
@@ -66,7 +66,10 @@ const ProfileCertificationTimeline = ({
         <div className="profile-header">
           <img src={profileImage} alt="Profile" className="profile-image" />
           <div className="profile-details">
-            <h2>{profileData.name}</h2>
+            <h2>
+              {profileData.name}
+              {/* <GenerateQRCodeFunction /> */}
+            </h2>
             <div>
               <strong>Designation:</strong> {profileData.designation}
             </div>

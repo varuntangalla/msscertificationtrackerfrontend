@@ -1,5 +1,4 @@
 // Footer.jsx
-import React from "react";
 import { Typography, Link, Container } from "@mui/material";
 import { styled } from "@mui/system";
 
