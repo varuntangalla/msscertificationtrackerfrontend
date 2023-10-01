@@ -140,14 +140,34 @@ const ProfileCertificationTimeline = ({
                   <div>
                     <strong>Completed On:</strong> {certification.completedOn}
                   </div>
-                  <div>
+                  {/* <div>
                     <strong>Active:</strong>{" "}
                     {new Date(certification.valid_till) > new Date()
                       ? "Yes"
                       : "No"}
-                  </div>
+                  </div> */}
                   <div>
                     <strong>Valid Till:</strong> {certification.valid_till}
+                  </div>
+                  <div>
+                    {" "}
+                    {new Date(certification.valid_till) > new Date() ? (
+                      <button
+                        className="active-button"
+                        style={{ backgroundColor: "green", color: "white" }}
+                        disabled
+                      >
+                        Active
+                      </button>
+                    ) : (
+                      <button
+                        className="expired-button"
+                        style={{ backgroundColor: "red", color: "white" }}
+                        disabled
+                      >
+                        Expired
+                      </button>
+                    )}
                   </div>
                   {/* Add more certification details as needed */}
                 </TimelineContent>

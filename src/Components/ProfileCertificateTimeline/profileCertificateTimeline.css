@@ -70,6 +70,27 @@
   left: -3px; /* Adjust the left position as needed */
   transform: translateY(-50%); /* Center the dot vertically */
 }
+
+.active-button,
+.expired-button {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: not-allowed;
+}
+
+.active-button {
+  background-color: green;
+  color: white;
+}
+
+.expired-button {
+  background-color: red;
+  color: white;
+}
+
+
 @media (min-width: 768px) {
   /* Apply styles for larger screens (adjust breakpoint as needed) */
   .profile-certification-timeline-container {
