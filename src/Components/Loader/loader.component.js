@@ -13,7 +13,7 @@ const StyledContainer = styled(Box)(({ theme }) => ({
 }));
 
 const LoadingComponent = () => {
-  const [data, setData] = useState([]);
+  //const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,9 +21,9 @@ const LoadingComponent = () => {
     setTimeout(() => {
       // Assuming your data fetching logic here
       // Replace this with your actual data fetching code
-      setData([
-        /* your data here */
-      ]);
+      //   setData([
+      //     /* your data here */
+      //   ]);
       setLoading(false);
     }, 2000); // Simulating a 2-second delay
   }, []);
