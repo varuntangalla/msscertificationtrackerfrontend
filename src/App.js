@@ -3,14 +3,35 @@ import React, { useState, useEffect } from "react";
 import ProfileComponent from "./Components/ProfileHolder/profile.component";
 import MyNavbar from "./Components/Navbar/navbar.component";
 import Footer from "./Components/Footer/footer.component"; // Import the Footer component
-import PageNotFound from "./Components/PageNotFound/pageNotFound.component"; // Import the PageNotFound component
+// import PageNotFound from "./Components/PageNotFound/pageNotFound.component"; // Import the PageNotFound component
 import { Route, Routes } from "react-router-dom";
+import db from "./Services/firebaseConfig.js"; // Path to your firebaseConfig.js
+import { collection, getDocs } from "firebase/firestore";
+
 function App() {
   const [items, setItems] = useState([]);
+  // useEffect(() => {
+  //   setItems(require("./assets/employeeList.json"));
+  // }, []);
   useEffect(() => {
-    setItems(require("./assets/employeeList.json"));
-  }, []);
+    const fetchData = async () => {
+      try {
+        const querySnapshot = await getDocs(
+          collection(db, "employeeCollection")
+        );
+        const dataArray = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setItems(dataArray);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
 
+    fetchData();
+  }, []);
+  console.log("DataArray", items);
   // useEffect(() => {
   //   fetch("/assets/employeeList.json")
   //     .then((response) => {
@@ -27,9 +48,9 @@ function App() {
   //     });
   // }, []);
 
-  if (items.length === 0) {
-    return <div>Loading...</div>;
-  }
+  // if (items.length === 0) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div>
@@ -42,7 +63,7 @@ function App() {
           // element={<ActionAreaCard data={items} />
           element={<ProfileComponent data={items} />}
         />
-        <Route path="/*" element={<PageNotFound data={"Page Not Found!"} />} />
+        {/* <Route path="/*" element={<PageNotFound data={"Page Not Found!"} />} /> */}
       </Routes>
       {/* <ActionAreaCard data={items} match={{ params: { employeeId: "1221" } }} /> */}
       {/* Replace "1220" with the actual employeeId from the URL */}
