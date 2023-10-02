@@ -6,6 +6,7 @@ import PageNotFound from "./Components/PageNotFound/pageNotFound.component";
 import { Route, Routes } from "react-router-dom";
 import db from "./Services/firebaseConfig.js";
 import { collection, getDocs } from "firebase/firestore";
+import LoadingComponent from "./Components/Loader/loader.component";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -32,7 +33,13 @@ function App() {
   }, []);
 
   if (!dataLoaded) {
-    return <div></div>;
+    return (
+      <div>
+        <MyNavbar />
+        <LoadingComponent />
+        <Footer />
+      </div>
+    );
   }
 
   return (
